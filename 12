@@ -1,0 +1,21 @@
+def get_balance(name, transactions):
+    balans = 0
+    col_vo = 0 
+    for elem in transactions:
+        if name == elem.get('name'):
+            balans += elem.get('amount')
+            col_vo += 1
+    if col_vo > 0:
+        return balans
+    else:
+        return 0
+    
+def count_debts(names, amount, transactions):
+    spisok = {}
+    for imya in names:
+        summa_druga = get_balance(imya, transactions)
+        if summa_druga > amount:
+            spisok[imya] = 0
+        else:
+            spisok[imya] = amount - summa_druga
+    return spisok 
