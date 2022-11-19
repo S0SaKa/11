@@ -1,0 +1,13 @@
+def lists_sum(*args, unique=False):
+    a = [*args]
+    chisla = sum(a, [])
+    if len(chisla) == 0:
+        return 0
+    else:
+        for elem in chisla:
+            if unique == False:
+                summa = sum(chisla)
+            else:
+                sorted_chisla = list(set(chisla))
+                summa = sum(sorted_chisla)
+            return summa
